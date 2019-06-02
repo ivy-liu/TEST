@@ -1,4 +1,10 @@
+'''
+https://curl.trillworks.com
+
+'''
 import requests
+from concurrent.futures import ThreadPoolExecutor
+
 
 cookies = {
     'BAIDUID': '106625EC54D47B0161A84CB23A9BB476:FG=1',
@@ -36,9 +42,15 @@ params = (
     ('sid', '1450_21093_29064_28518_29099_28835_28584_26350_22158'),
 )
 
-response = requests.get('https://www.baidu.com/home/msg/data/personalcontent', headers=headers, params=params, cookies=cookies)
 
 #NB. Original query string below. It seems impossible to parse and
 #reproduce query strings 100% accurately so the one below is given
 #in case the reproduced version is not "correct".
 # response = requests.get('https://www.baidu.com/home/msg/data/personalcontent?num=8&indextype=manht&_req_seqid=0xc3f798b9000406eb&asyn=1&t=1559463797888&sid=1450_21093_29064_28518_29099_28835_28584_26350_22158', headers=headers, cookies=cookies)
+
+
+def ten(i):
+    response = requests.get('https://www.baidu.com/home/msg/data/personalcontent', headers=headers, params=params, cookies=cookies)
+    
+with ThreadPoolExecutor () as pool:  #创建线程池
+    pool.map(ten,range(10))   //执行10次
