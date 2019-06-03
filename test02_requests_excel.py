@@ -43,7 +43,7 @@ def parse_one_page(html):
 def write_file(content):
     with open('result.txt','a',encoding='utf-8') as f:
         f.write(json.dumps(content,ensure_ascii=False)+'\n')#对数据编码
-        f.close()#关闭
+        f.close()#关闭 ，python，默认调用，可以不用写
 
 def main():
     Url = 'https://maoyan.com/board?4'
@@ -52,5 +52,5 @@ def main():
         print (item)
         write_file(item)
 
-if __name__ == "__main__":
+if __name__ == "__main__": #判断文件入口
     main()
