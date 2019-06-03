@@ -2,7 +2,6 @@ import requests
 import re,json
 import unittest
 
-Url = 'https://maoyan.com/board?4'
 
 def get_html(Url):
     user_agent = 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11'
@@ -40,6 +39,18 @@ def parse_one_page(html):
             'score':item[5]+item[6]
         }
 
-html=get_html(Url)
-for item in parse_one_page(html):
-    print (item)
+#数据存储
+def write_file(content):
+    with open('result.txt','a',encoding='utf-8') as f:
+        f.write(json.dumps(content,ensure_ascii=False)+'\n')#对数据编码
+        f.close()#关闭
+
+def main():
+    Url = 'https://maoyan.com/board?4'
+    html=get_html(Url)
+    for item in parse_one_page(html):
+        print (item)
+        write_file(item)
+
+if __name__ == "__main__":
+    main()
