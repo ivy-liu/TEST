@@ -1,10 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-# @分享者  : 小强测试品牌 (xqtesting@qq.com)
-# @官网    : http://www.xqtesting.com
-# @博客	: http://www.xqtesting.com/blog.html
-# @微信公众号	: 测试帮日记
 
 
 '''
