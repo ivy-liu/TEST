@@ -22,7 +22,7 @@ print(result_title)
 # <selenium.webdriver.support.expected_conditions.title_contains object at 0x0000026120926D30>
 '''
 EC.title_contains("注册")
-使用这个，简单验证一下title，确定网页是不是加载好了
+使用这个，简单验证一下title是否可见，确定网页是不是加载好了
 '''
 
 
@@ -39,7 +39,7 @@ print(result_element)
 # <selenium.webdriver.support.expected_conditions.visibility_of_element_located object at 0x000001F6AD1D6D68>   
 '''
 EC.visibility_of_element_located(element_node)
-使用这个，验证一下element，确定网页是不是加载好了
+使用这个，验证一下element是否可见，确定网页是不是加载好了
 '''
 
 locator=(By.CLASS_NAME,"controls")
